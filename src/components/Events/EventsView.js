@@ -42,6 +42,10 @@ const EventsView = (props) => {
         // when selected filters change, update filtered events
         filterSelectedEvents();
     }, [filters]);
+
+    useEffect(() => {
+        console.log('logged in use effect: ', loggedIn);
+    }, [loggedIn])
     // *********************************************
 
     // helper Functions ****************************
@@ -63,19 +67,6 @@ const EventsView = (props) => {
         });
         return sorted;
     }
-
-    // const filterEventsOnLogin = (authStatus) => {
-    //     // filter events on login based on whether or not user is verified
-    //     if (authStatus) {
-    //         setFilteredEvents(events);
-    //         return;
-    //     }
-
-    //     let filteredResults = events.filter((event) => {
-    //         return event.permission === "public";
-    //     });
-    //     setFilteredEvents(filteredResults);
-    // }
 
     const filterEvents = () => {
         // filters events (based on input)
@@ -122,6 +113,8 @@ const EventsView = (props) => {
             if (email.includes("hackthenorth.com")) {
                 props.toggleVerify(true);
                 setFilteredEvents(events);
+                setEmail(email);
+                setLoggedIn(true);
                 return;
             } else {
                 props.toggleVerify(false);
@@ -130,9 +123,10 @@ const EventsView = (props) => {
                 });
                 setEvents(filteredResults);
                 setFilteredEvents(filteredResults);
+                setEmail(email);
+                setLoggedIn(true);
+                return;
             }
-            setEmail(email);
-            setLoggedIn(true);
         } else {
             setLogInError(true);
         }
@@ -258,6 +252,7 @@ const FiltersWrapper = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 `
 
 const EventsTitle = styled.h4`

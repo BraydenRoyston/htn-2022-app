@@ -27,6 +27,7 @@ const Input = styled.input`
     &::placeholder {
         color: black;
         font-style: italic;
+        font-size: var(--fs-subtitle);
     }
 
     transition: all 1s ease;

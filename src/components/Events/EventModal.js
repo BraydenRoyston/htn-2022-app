@@ -284,7 +284,7 @@ const SpeakerName = styled.div`
 
 const JoinDetails = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 `

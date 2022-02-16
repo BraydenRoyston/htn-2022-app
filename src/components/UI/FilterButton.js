@@ -31,7 +31,8 @@ const Button = styled.button`
     padding: 15px;
     margin: 15px;
     color: black;
-    font-weight: bold;
+    font-size: var(--fs-subtitle);
+    font-weight: var(--fw-title);
     transition: all 1s ease;
 
     background: linear-gradient(
