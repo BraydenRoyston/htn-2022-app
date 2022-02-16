@@ -12,7 +12,6 @@ const App = (props) => {
 
   const toggleVerified = async (val) => {
     await setVerified(val);
-    console.log(verified);
   }
 
   const toggleMode = () => {

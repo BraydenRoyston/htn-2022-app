@@ -5,20 +5,25 @@ const RelatedEvent = (props) => {
     const [event, setEvent] = useState(null);
 
     useEffect(() => {
-        setEvent(props.events.find((val) => val.id == props.event_id));
+        let eventData = props.events.find((val) => val.id == props.event_id);
+        setEvent(eventData);
     }, [props.event_id]);
 
     const handleClick = () => {
         props.callback(event);
     }
+    if (event) {
+        return(
+            <Wrapper onClick={handleClick}>
+                {event ? 
+                    <Title>{event.name}</Title>
+                : null}
+            </Wrapper>
+        );
+    } else {
+        return null;
+    }
     
-    return(
-        <Wrapper onClick={handleClick}>
-            {event ? 
-                <Title>{event.name}</Title>
-            : null}
-        </Wrapper>
-    );
 }
 
 const Wrapper = styled.div`

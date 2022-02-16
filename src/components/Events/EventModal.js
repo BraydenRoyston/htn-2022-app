@@ -113,11 +113,11 @@ const EventModal = (props) => {
 
                     <JoinDetails>
                         {props.event.public_url ? 
-                            <Join href={props.event.public_url} target="_blank">Join public event</Join>
+                            <Join mode={props.mode} href={props.event.public_url} target="_blank">Join public event</Join>
                             : null
                         }
                         {props.verified ? 
-                            <Join href={props.event.private_url} target="_blank">Join private event</Join>
+                            <Join mode={props.mode} href={props.event.private_url} target="_blank">Join private event</Join>
                             : null
                         }
                     </JoinDetails>
@@ -279,6 +279,7 @@ const SpeakerHeadshot = styled.img`
 const SpeakerName = styled.div`
     font-size: var(--fs-body);
     font-weight: var(--fw-body);
+    text-align: center;
 `
 
 const JoinDetails = styled.div`
@@ -291,6 +292,40 @@ const JoinDetails = styled.div`
 const Join  = styled.a`
     font-size: var(--fs-body);
     font-weight: var(--fw-body);
+    color: var(--white);
+
+    text-decoration: none;
+
+    background: ${props => props.mode ? 
+        `linear-gradient(
+            to right bottom,
+            rgba(79, 147, 126, 0.7),
+            rgba(79, 147, 126, 0.3)
+        );`:
+        `linear-gradient(
+            to right bottom,
+            rgba(10, 68, 109, 0.7),
+            rgba(10, 68, 109, 0.3)
+    );`}
+    border-radius: 25px;
+    margin: 25px;
+    cursor: pointer;
+    padding: 10px;
+
+
+    &:hover {
+        background: ${props => props.mode ? 
+            `linear-gradient(
+                to right bottom,
+                rgba(79, 147, 126, 1),
+                rgba(79, 147, 126, 0.7)
+            );`:
+            `linear-gradient(
+                to right bottom,
+                rgba(10, 68, 109, 1),
+                rgba(10, 68, 109, 0.7)
+        );`}
+    }
 `
 
 const RelatedWrapper = styled.div`
