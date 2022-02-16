@@ -22,34 +22,24 @@ const EventsView = (props) => {
     // useEffects **********************************
     useEffect(() => {
         // initial fetch
-        console.log('calling filter from initial')
         fetchEvents();
     }, []);
 
     useEffect(() => {
         // sets filtered events after inital fetch
-        console.log('calling filter from events change')
         filterEvents();
     }, [events]);
 
     useEffect(() => {
-        console.log(filteredEvents);
     }, [filteredEvents]);
-
-    // useEffect(() => {
-    //     // sets filtered events after user logs in
-    //     filterEventsOnLogin();
-    // }, [loggedIn]);
-
+    
     useEffect(() => {
         // when filter input changes, update filtered events
-        console.log('calling filter by input')
         filterEvents();
     }, [filterInput]);
 
     useEffect(() => {
         // when selected filters change, update filtered events
-        console.log('calling filter by selection')
         filterSelectedEvents();
     }, [filters]);
     // *********************************************

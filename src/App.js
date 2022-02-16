@@ -12,11 +12,11 @@ const App = (props) => {
 
   const toggleVerified = async (val) => {
     await setVerified(val);
+    console.log(verified);
   }
 
   const toggleMode = () => {
     setLightmode(!lightmode);
-    console.log(lightmode);
   }
 
   return(
