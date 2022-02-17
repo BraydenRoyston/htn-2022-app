@@ -55,7 +55,11 @@ const EventCard = (props) => {
             <EventHeader>
                 <Title>{props.event.name}</Title>
                 <EventDate>{getDay(props.event.start_time)}, {getTime(props.event.start_time)} - {getTime(props.event.end_time)}</EventDate>
-                <EventType>{props.event.event_type == 'workshop' ? "Workshop" : props.event.event_type == 'tech_talk' ? "Tech Talk" : "Activity"}</EventType>
+                <EventType>
+                    {props.event.event_type == 'workshop' ? "Workshop " : props.event.event_type == 'tech_talk' ? "Tech Talk " : "Activity "}
+                    -
+                    {props.event.permission == 'private' ? " Private" : " Public"}
+                </EventType>
             </EventHeader>
         </Event>
     );

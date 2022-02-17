@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useSpring, animated} from 'react-spring'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserTie } from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import RelatedEvent from './RelatedEvent';
 
 const EventModal = (props) => {
@@ -67,17 +67,17 @@ const EventModal = (props) => {
                                     <Speaker>
                                         {val.profile_pic ? 
                                             <SpeakerHeadshot src={val.profile_pic}/> : 
-                                            <FontAwesomeIcon size="xl" icon={faUserTie} style={
+                                            <FontAwesomeIcon size="xl" icon={faUserCircle} style={
                                                 props.mode ?
                                                 {
                                                     "color": "black", 
                                                     "transition": "all 1s ease",
-                                                    "fontSize": "50px"
+                                                    "fontSize": "100px"
                                                 }
                                                 : {
                                                     "color": "black", 
                                                     "transition": "all 1s ease",
-                                                    "fontSize": "50px"
+                                                    "fontSize": "100px"
                                                 }
                                             }/>
                                         }
@@ -103,25 +103,25 @@ const EventModal = (props) => {
                                     );
                                 })}
                             </RelatedEvents>
+                            <JoinWrapper>
+                                <Subtitle>Joining Info</Subtitle>
+                                <JoinDetails>
+                                    {props.event.public_url ? 
+                                        <Join mode={props.mode} href={props.event.public_url} target="_blank">Join public event</Join>
+                                        : null
+                                    }
+                                    {props.verified ? 
+                                        <Join mode={props.mode} href={props.event.private_url} target="_blank">Join private event</Join>
+                                        : null
+                                    }
+                                </JoinDetails>
+                            </JoinWrapper>
                         </RelatedWrapper>
                         : null
                     }
                 </HostsAndRelated>
                 
-                <JoinWrapper>
-                    <Subtitle>Joining Info</Subtitle>
-
-                    <JoinDetails>
-                        {props.event.public_url ? 
-                            <Join mode={props.mode} href={props.event.public_url} target="_blank">Join public event</Join>
-                            : null
-                        }
-                        {props.verified ? 
-                            <Join mode={props.mode} href={props.event.private_url} target="_blank">Join private event</Join>
-                            : null
-                        }
-                    </JoinDetails>
-                </JoinWrapper>
+                
             </ExtraDetails>
         </Wrapper>
     );
@@ -238,12 +238,6 @@ const SpeakersSection = styled.div`
     padding-right: 15px;
     padding-left: 15px;
     padding-bottom: 15px;
-
-    // background: linear-gradient(
-    //     to left top,
-    //     rgba(255, 255, 255, 0.8),
-    //     rgba(255, 255, 255, 0.5)
-    //   );
     border-radius: 15px;
 `
 

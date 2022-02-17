@@ -14,7 +14,7 @@ const RelatedEvent = (props) => {
     }
     if (event) {
         return(
-            <Wrapper onClick={handleClick}>
+            <Wrapper mode={props.mode} onClick={handleClick}>
                 {event ? 
                     <Title>{event.name}</Title>
                 : null}
