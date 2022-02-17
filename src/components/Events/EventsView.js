@@ -171,6 +171,7 @@ const EventsView = (props) => {
                     </Controls>
                     <EventsWrapper>
                         <Inner>
+                            <EventsTitle>Scroll to view all events!</EventsTitle>
                             {!filteredEvents.length ? <NullCard >No events found that start with "{filterInput}"</NullCard> :
                             filteredEvents.map((val) => {
                                 return(
