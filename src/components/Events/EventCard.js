@@ -60,6 +60,9 @@ const EventCard = (props) => {
                     -
                     {props.event.permission == 'private' ? " Private" : " Public"}
                 </EventType>
+                <Prompt>
+                    Click for more details!
+                </Prompt>
             </EventHeader>
         </Event>
     );
@@ -118,4 +121,15 @@ const EventType = styled.div`
 
     text-align: center;
 `
+
+const Prompt = styled.div`
+    margin-top: 5px;
+    font-size: var(--fs-subtitle);
+    font-weight: var(--fw-title);
+    font-style: italic;
+
+    text-align: center;
+    color: var(--white);
+`
+
 export default EventCard;

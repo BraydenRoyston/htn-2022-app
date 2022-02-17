@@ -318,15 +318,6 @@ const Controls = styled.div`
 
     margin-top: 25px;
     width: 20vw;
-    // height: 50%; // testing
-
-    // background: linear-gradient(
-    //     to right bottom,
-    //     rgba(255, 255, 255, 0.7),
-    //     rgba(255, 255, 255, 0.3)
-    // );
-
-    // z-index: -1;
 `
 
 
