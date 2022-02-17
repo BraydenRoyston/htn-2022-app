@@ -42,10 +42,6 @@ const EventsView = (props) => {
         // when selected filters change, update filtered events
         filterSelectedEvents();
     }, [filters]);
-
-    useEffect(() => {
-        console.log('logged in use effect: ', loggedIn);
-    }, [loggedIn])
     // *********************************************
 
     // helper Functions ****************************
